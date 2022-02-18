@@ -7,3 +7,16 @@ before_install:
 
 script:
   - docker run irfanvox/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-south-1"
+  app: "docker-react"
+  env: "Dockerreact-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-067437736266"
+  bucket_path: "docker-react"
+  on:
+    branch: master
+  access_key_id: AKIAQ7M42GFFO3RUEJ6J
+  secret_access_key:
+    secure: "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"
